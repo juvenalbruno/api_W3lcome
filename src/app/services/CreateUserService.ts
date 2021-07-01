@@ -15,7 +15,7 @@ class CreateUserService {
         const test_email = email.trim();
         const test_picture_url = picture_url.trim();
 
-        if (!name || name === undefined || name === null || test_name === null)
+        if (!name || name === undefined || name === null || test_name === "null")
             throw new Error("Name incorrect");
         
         if (!email || email === undefined || email === null || test_email === null)

@@ -7,9 +7,13 @@ class CreateUserController {
 
         const createUserService = new CreateUserService();
         
-        const user = await createUserService.execute({ name, email, picture_url });
+        try {
+            const user = await createUserService.execute({ name, email, picture_url });
 
-        return res.json(user);
+            return res.json(user);
+        } catch (err) {
+            return res.status(404).json("Error in parameters").end()
+        }
     }
 }
 
