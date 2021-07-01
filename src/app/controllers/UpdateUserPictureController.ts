@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import { UpdateUserService } from "../services/UpdateUserService";
+import { UpdateUserPictureService } from "../services/UpdateUserPictureService";
 
-class UpdateUserController {
+class UpdateUserPictureController {
     async handle(req: Request, res: Response) {
         const { id } = req.params;
-        const { email, picture_url } = req.body;
+        const { picture_url } = req.body;
         
-        const updateUserController = new UpdateUserService();
+        const updateUserController = new UpdateUserPictureService();
 
         try {
-            await updateUserController.execute({ id, email, picture_url });
+            await updateUserController.execute({ id, picture_url});
             return res.status(200).json("User updated successfully!");
 
         } catch (err) {
@@ -18,4 +18,4 @@ class UpdateUserController {
     }
 }
 
-export { UpdateUserController }
+export { UpdateUserPictureController }
